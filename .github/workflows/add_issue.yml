@@ -3,15 +3,12 @@ name: Add new issue to Backlog
 on:
   issues:
     types: [opened]
-
 jobs:
-  add-issue-to-backlog:
+  createCard:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Add issue to project Backlog
-        uses: alex-page/github-project-automation-plus@v0.4.0
+      - name: Create or Update Project Card
+        uses: peter-evans/create-or-update-project-card@v1
         with:
-          project_url: https://github.com/lekdel21/INF8100_TP/projects/1
-          column_name: Backlog
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          project-name: INF8100_TP
+          column-name: Backlog
