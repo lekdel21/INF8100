@@ -1,0 +1,17 @@
+name: Add new issue to Backlog
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-issue-to-backlog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add issue to project Backlog
+        uses: actions-ecosystem/action-add-project-card@v1
+        with:
+          project_url: https://github.com/lekdel21/INF8100/INF8100_TP/1
+          column_name: Backlog
+          issue_number: ${{ github.event.issue.number }}
