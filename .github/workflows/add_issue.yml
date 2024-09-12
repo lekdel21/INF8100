@@ -12,7 +12,7 @@ jobs:
       - name: Add issue to project Backlog
         uses: alex-page/github-project-automation-plus@v0.4.0
         with:
-          project_url: https://github.com/lekdel21/nom-du-depot/projects/1
+          project_url: https://github.com/users/lekdel21/projects/2
           column_name: Backlog
           issue_number: ${{ github.event.issue.number }}
 
