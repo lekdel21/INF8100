@@ -12,6 +12,6 @@ jobs:
       - name: Add issue to project Backlog
         uses: actions-ecosystem/action-add-project-card@v1
         with:
-          project_url: https://github.com/users/lekdel21/projects/2
+          project_url: https://github.com/lekdel21/INF8100_TP/projects/1
           column_name: Backlog
           issue_number: ${{ github.event.issue.number }}
