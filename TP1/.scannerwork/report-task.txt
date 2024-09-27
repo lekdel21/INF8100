@@ -1,0 +1,6 @@
+projectKey=pygoat
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=pygoat
+ceTaskId=cdd2fd01-d561-461a-abbd-ec3101fe9c74
+ceTaskUrl=http://localhost:9000/api/ce/task?id=cdd2fd01-d561-461a-abbd-ec3101fe9c74
