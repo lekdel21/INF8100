@@ -7,7 +7,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x /app/entrypoint.sh \
+RUN echo "Host geoserver"
+
+RUN node -v && chmod +x /app/entrypoint.sh \
 	&& npm install
 
 CMD ["bash", "/app/entrypoint.sh"]

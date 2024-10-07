@@ -5,6 +5,7 @@ var session = require('express-session')
 var ejs = require('ejs')
 var morgan = require('morgan')
 const fileUpload = require('express-fileupload');
+var cookieParser = require('cookie-parser');
 var config = require('./config/server')
 
 //Initialize Express
@@ -13,6 +14,7 @@ require('./core/passport')(passport)
 app.use(express.static('public'))
 app.set('view engine','ejs')
 app.use(morgan('tiny'))
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(fileUpload());
 

@@ -2,7 +2,7 @@ var db = require('../models')
 var bCrypt = require('bcrypt')
 const exec = require('child_process').exec;
 var mathjs = require('mathjs')
-var libxmljs = require("libxmljs");
+const xml2js = require('xml2js');
 var serialize = require("node-serialize")
 const Op = db.Sequelize.Op
 
@@ -232,15 +232,23 @@ module.exports.bulkProductsLegacy = function (req,res){
 
 module.exports.bulkProducts =  function(req, res) {
 	if (req.files.products && req.files.products.mimetype=='text/xml'){
-		var products = libxmljs.parseXmlString(req.files.products.data.toString('utf8'), {noent:true,noblanks:true})
-		products.root().childNodes().forEach( product => {
-			var newProduct = new db.Product()
-			newProduct.name = product.childNodes()[0].text()
-			newProduct.code = product.childNodes()[1].text()
-			newProduct.tags = product.childNodes()[2].text()
-			newProduct.description = product.childNodes()[3].text()
-			newProduct.save()
-		})
+		xml2js.parseString(xmlString, { explicitArray: false }, (err, result) => {
+			if (err) {
+			  // Handle error
+			  console.error('Error parsing XML:', err);
+			  return;
+			}
+			const products = result; // Your JavaScript object
+			products.root().childNodes().forEach( product => {
+				var newProduct = new db.Product()
+				newProduct.name = product.childNodes()[0].text()
+				newProduct.code = product.childNodes()[1].text()
+				newProduct.tags = product.childNodes()[2].text()
+				newProduct.description = product.childNodes()[3].text()
+				newProduct.save()
+			})
+		  });
+		
 		res.redirect('/app/products')
 	}else{
 		res.render('app/bulkproducts',{messages:{danger:'Invalid file'},legacy:false})

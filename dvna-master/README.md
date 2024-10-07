@@ -82,7 +82,7 @@ MYSQL_DATABASE=dvna
 MYSQL_PASSWORD=passw0rd
 MYSQL_RANDOM_ROOT_PASSWORD=yes
 MYSQL_HOST=mysql-db
-MYSQL_PORT=3306
+MYSQL_PORT=5432
 ```
 
 Start a MySQL container
@@ -114,7 +114,7 @@ export MYSQL_USER=dvna
 export MYSQL_DATABASE=dvna
 export MYSQL_PASSWORD=passw0rd
 export MYSQL_HOST=127.0.0.1
-export MYSQL_PORT=3306
+export MYSQL_PORT=5432
 ```
 
 Install Dependencies

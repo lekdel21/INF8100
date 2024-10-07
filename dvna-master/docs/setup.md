@@ -42,10 +42,10 @@ git clone https://github.com/appsecco/dvna; cd dvna
 
 Create a file with name `vars.env` in the application's folder with the desired configuration like the example below
 ```
-MYSQL_USER=dvna
-MYSQL_DATABASE=dvna
-MYSQL_PASSWORD=passw0rd
-MYSQL_RANDOM_ROOT_PASSWORD=yes
+POSTGRES_USER=dvna
+POSTGRES_DATABASE=dvna
+POSTGRES_PASSWORD=passw0rd
+POSTGRES_RANDOM_ROOT_PASSWORD=yes
 ```
 
 Start the application using Docker Compose
@@ -61,12 +61,12 @@ The application will automatically reload on code changes, so feel free to patch
 
 Create a file named `vars.env` with the following configuration
 ```
-MYSQL_USER=dvna
-MYSQL_DATABASE=dvna
-MYSQL_PASSWORD=passw0rd
-MYSQL_RANDOM_ROOT_PASSWORD=yes
-MYSQL_HOST=mysql-db
-MYSQL_PORT=3306
+POSTGRES_USER=dvna
+POSTGRES_DATABASE=dvna
+POSTGRES_PASSWORD=passw0rd
+POSTGRES_RANDOM_ROOT_PASSWORD=yes
+POSTGRES_HOST=mysql-db
+POSTGRES_PORT=5432
 ```
 
 Start a MySQL container, unless you want to use your own, in which case configure in the env file above
@@ -97,11 +97,11 @@ git clone https://github.com/appsecco/dvna; cd dvna
 
 Configure the environment variables with your database information. For Windows system, refer to the guide on [Setting up environment variables](http://www.dowdandassociates.com/blog/content/howto-set-an-environment-variable-in-windows-command-line-and-registry/)
 ```bash
-export MYSQL_USER=dvna
-export MYSQL_DATABASE=dvna
-export MYSQL_PASSWORD=passw0rd
-export MYSQL_HOST=127.0.0.1
-export MYSQL_PORT=3306
+export POSTGRES_USER=dvna
+export POSTGRES_DATABASE=dvna
+export POSTGRES_PASSWORD=passw0rd
+export POSTGRES_HOST=127.0.0.1
+export POSTGRES_PORT=5432
 ```
 
 Install Dependencies
